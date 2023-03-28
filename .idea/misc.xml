@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/NITRO5/AndroidStudioProjects/Mos3if/app/src/main/res/drawable/btn_background.xml" value="0.2165" />
+        <entry key="..\:/Users/NITRO5/AndroidStudioProjects/Mos3if/app/src/main/res/drawable/edit_text.xml" value="0.2165" />
+        <entry key="..\:/Users/NITRO5/AndroidStudioProjects/Mos3if/app/src/main/res/drawable/ic_baseline_person_pin_24.xml" value="0.2165" />
+        <entry key="..\:/Users/NITRO5/AndroidStudioProjects/Mos3if/app/src/main/res/drawable/ic_email.xml" value="0.2165" />
+        <entry key="..\:/Users/NITRO5/AndroidStudioProjects/Mos3if/app/src/main/res/drawable/ic_person.xml" value="0.2165" />
+        <entry key="..\:/Users/NITRO5/AndroidStudioProjects/Mos3if/app/src/main/res/drawable/ic_waveblue.xml" value="0.2165" />
+        <entry key="..\:/Users/NITRO5/AndroidStudioProjects/Mos3if/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/NITRO5/AndroidStudioProjects/Mos3if/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
