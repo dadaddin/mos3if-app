@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         password.setHint("Enter your password");
 
 
+
         mAuth = FirebaseAuth.getInstance();
 
         //Sign up
@@ -98,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.commit();
 
                             //redirect to main activity
-                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this,TestActivity.class);
                             startActivity(intent);
                             finish();
                         }else{

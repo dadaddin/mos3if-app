@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getSharedPreferences(LoginActivity.PREFS_NAME,0);
                 boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn",false);
                 if (hasLoggedIn){
-                    startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                    startActivity(new Intent(SplashActivity.this,TestActivity.class));
                     finish();
                 } else {
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
