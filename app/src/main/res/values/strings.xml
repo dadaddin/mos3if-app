@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Mos3if</string>
+    //Heading
+    <string name="heading_one">Save Lives</string>
+    <string name="heading_two">Get First Aid Kits And Tips</string>
+    <string name="heading_three">Doctor Easily At Your Reach</string>
+
+    //Description
+
+    <string name="desc_one">With Mos3if you are in the position to save lives during emergency situations</string>
+    <string name="desc_two">Get access to first aid kits and tips currated by specialists just for you</string>
+    <string name="desc_three">Speak to doctors about medical issues you are facing without stress</string>
+
+    //startpage
+
+    <string name="pointone"> Be a hero, save lives</string>
+    <string name="pointtwo"> Get first aid kits and tips</string>
+    <string name="pointthree"> Get doctors easily with a click</string>
+    <string name="pointfor"> Send SOS messages easily during emergencies.</string>
+    <string name="pointfive"> and more...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
