@@ -22,11 +22,11 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private LinearLayout linearLayout;
+
     private ProgressBar progressBar;
 
-    private TextView forgetP;  //forget password
-    private Button btn_login, btn_signup;
+    private TextView forgetP , signup;
+    private Button btn_login;
     private EditText email, password;
     private FirebaseAuth mAuth;
     static String PREFS_NAME = "MyPrefsFile";
@@ -35,9 +35,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login1);
 
-        linearLayout = findViewById(R.id.linearLayout);
         progressBar = findViewById(R.id.progressBar);
-        btn_signup = findViewById(R.id.btn_signup);
+        signup = findViewById(R.id.tv_signup);
         forgetP = findViewById(R.id.forget_Password);
         btn_login = findViewById(R.id.btn_login);
         email = findViewById(R.id.login_email);
@@ -50,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //Sign up
-        btn_signup.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this,SignUpActivity.class));

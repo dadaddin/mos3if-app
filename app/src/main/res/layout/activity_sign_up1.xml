@@ -31,57 +31,6 @@
                 android:textSize="28sp"
                 android:fontFamily="@font/opensansbold"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:layout_marginHorizontal="30dp"
-                android:padding="3dp"
-                android:background="@drawable/rg_background"
-                >
-
-                <RadioGroup
-                    android:id="@+id/rg_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:weightSum="2"
-                    android:orientation="horizontal"
-                    >
-
-                    <RadioButton
-                        android:id="@+id/rb_basic"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Basic"
-                        android:gravity="center"
-                        android:textSize="17sp"
-                        android:fontFamily="@font/opensanssemibold"
-                        android:textColor="@drawable/radio_text_color"
-                        android:padding="10dp"
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/radio_selector"
-                        />
-
-                    <RadioButton
-                        android:id="@+id/rb_volunteer"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:text="Volunteer"
-                        android:gravity="center"
-                        android:textSize="17sp"
-                        android:fontFamily="@font/opensanssemibold"
-                        android:textColor="@drawable/radio_text_color"
-                        android:padding="10dp"
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/radio_selector"/>
-
-                </RadioGroup>
-
-            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -197,7 +146,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginHorizontal="30dp"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/red"
+                app:passwordToggleTint="@color/primary_color"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp">
 
@@ -257,7 +206,7 @@
                     android:layout_marginStart="3dp"
                     android:text="Login"
                     android:textSize="16sp"
-                    android:textColor="@color/red"
+                    android:textColor="@color/primary_color"
                     android:fontFamily="@font/opensanssemibold"
                     />
 

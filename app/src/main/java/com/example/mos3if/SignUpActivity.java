@@ -26,9 +26,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     private EditText email,firstName,lastName, password;
     private Button btn_signUp;
-    private RadioGroup rg_type;
-    private RadioButton rb_basic,rb_volunteer;
-
     private TextView loginTv;
     private ProgressBar progressBar;
 
@@ -48,10 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
         lastName = findViewById(R.id.signup_lastName);
         progressBar = findViewById(R.id.progressBar);
 
-        rg_type =findViewById(R.id.rg_type);
-        rb_basic = findViewById(R.id.rb_basic);
-        rb_volunteer = findViewById(R.id.rb_volunteer);
-        rb_basic.setChecked(true);
+
 
         firstName.setHint("First Name");
         lastName.setHint("Last Name");
@@ -76,13 +70,6 @@ public class SignUpActivity extends AppCompatActivity {
                 String emailTxt = email.getText().toString();
                 String passwordTxt = password.getText().toString();
 
-                int acType = rg_type.getCheckedRadioButtonId();
-
-                User.Type type = User.Type.BASIC;
-
-
-                if (acType == rb_volunteer.getId())
-
                 if (firstNameTxt.isEmpty()){
                     firstName.setError("First name is required");
                     firstName.requestFocus();
@@ -104,11 +91,6 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (acType == rb_basic.getId()){
-                    type = User.Type.BASIC;
-                } else if (acType == rb_volunteer.getId()) {
-                    type = User.Type.VOLUNTEER;
-                }
                 if (passwordTxt.isEmpty()){
                     password.setError("Password is required");
                     password.requestFocus();
@@ -122,13 +104,13 @@ public class SignUpActivity extends AppCompatActivity {
 
 
                 progressBar.setVisibility(view.VISIBLE);
-                User.Type finalType = type;
+
                 mAuth.createUserWithEmailAndPassword(emailTxt,passwordTxt)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
-                                    User user = new User(firstNameTxt,lastNameTxt, finalType,emailTxt);
+                                    User user = new User(firstNameTxt,lastNameTxt,emailTxt);
                                     FirebaseDatabase.getInstance().getReference("Users")
                                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
