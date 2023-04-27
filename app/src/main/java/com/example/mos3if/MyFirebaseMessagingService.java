@@ -18,6 +18,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -34,18 +35,24 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
 
-        // Get the current user ID
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        //check if the user is signed in
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser!=null){
+            // Get the current user ID
+            String userId = firebaseUser.getUid();
+            // Save the device token to the Firebase Realtime Database
+            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+            database.child("Users").child(userId).child("deviceToken").setValue(token)
+                    .addOnSuccessListener(aVoid -> {
+                        Log.e("TAG", "Device token saved to database");
+                    })
+                    .addOnFailureListener(e -> {
+                        Log.e("Tag", "Error saving device token to database", e);
+                    });
+        }
 
-        // Save the device token to the Firebase Realtime Database
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        database.child("Users").child(userId).child("deviceToken").setValue(token)
-                .addOnSuccessListener(aVoid -> {
-                    Log.e("TAG", "Device token saved to database");
-                })
-                .addOnFailureListener(e -> {
-                    Log.e("Tag", "Error saving device token to database", e);
-                });
+
+
     }
 
     @Override

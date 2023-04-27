@@ -11,13 +11,13 @@
         android:id="@+id/skipbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="skip"
-        android:textStyle="bold"
-
+        android:text="Skip"
+        android:fontFamily="@font/opensansbold"
         android:textColor="@color/white"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="525dp"
         android:background="#00000000"
-        android:textSize="25dp"
+        android:textSize="23dp"
+        android:textAllCaps="false"
         android:layout_centerHorizontal="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,20 +25,20 @@
         />
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nextbtn"
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_marginTop="590dp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/round_button"
+        android:background="@drawable/btn_login3"
         android:backgroundTint="@color/white"
 
         android:text="Next"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-
+        android:textSize="23dp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/opensansbold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -19,14 +19,26 @@ public class SplashActivity extends AppCompatActivity {
         runnable = new Runnable() {
             @Override
             public void run() {
-                SharedPreferences sharedPreferences = getSharedPreferences(LoginActivity.PREFS_NAME,0);
-                boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn",false);
-                if (hasLoggedIn){
-                    startActivity(new Intent(SplashActivity.this,TestActivity.class));
+
+                SharedPreferences welcome = getSharedPreferences("welcome",MODE_PRIVATE);
+                boolean isFirstTime = welcome.getBoolean("firstTime", true);
+
+                if (isFirstTime) {
+                    SharedPreferences.Editor editor = welcome.edit();
+                    editor.putBoolean("firstTime",false);
+                    editor.commit();
+                    startActivity(new Intent(getApplicationContext(), OnboardingActivity.class));
                     finish();
-                } else {
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                    finish();
+                }else{
+                    SharedPreferences sharedPreferences = getSharedPreferences(LoginActivity.PREFS_NAME,0);
+                    boolean hasLoggedIn = sharedPreferences.getBoolean("hasLoggedIn",false);
+                    if (hasLoggedIn){
+                           startActivity(new Intent(SplashActivity.this,TestActivity.class));
+                           finish();
+                    } else {
+                           startActivity(new Intent(getApplicationContext(), MainScreenActivity.class));
+                           finish();
+                    }
                 }
 
             }

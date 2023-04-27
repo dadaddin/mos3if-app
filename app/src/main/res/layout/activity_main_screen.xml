@@ -9,14 +9,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="Welcome to"
         android:textColor="@color/black"
         android:textSize="30dp"
-
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/robotomedium" />
+        android:fontFamily="@font/opensansbold" />
 
     <ImageView
         android:layout_width="200dp"
@@ -57,73 +55,80 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pointone"
-        android:textColor="@color/black"
-        android:fontFamily="@font/robotomedium"
         android:layout_marginTop="200dp"
         android:layout_marginStart="90dp"
-        android:textSize="20dp"/>
+        android:textSize="20sp"
+        android:fontFamily="@font/opensanssemibold"
+        android:textColor="@color/black" />
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pointtwo"
-        android:textColor="@color/black"
-        android:fontFamily="@font/robotomedium"
         android:layout_marginTop="260dp"
         android:layout_marginStart="90dp"
-        android:textSize="20dp"/>
+        android:textSize="20sp"
+        android:fontFamily="@font/opensanssemibold"
+        android:textColor="@color/black"
+        />
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pointthree"
-        android:textColor="@color/black"
-        android:fontFamily="@font/robotomedium"
         android:layout_marginTop="320dp"
         android:layout_marginStart="90dp"
-        android:textSize="20dp"/>
+        android:textSize="20sp"
+        android:fontFamily="@font/opensanssemibold"
+        android:textColor="@color/black"
+        />
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pointfor"
-        android:textColor="@color/black"
-        android:fontFamily="@font/robotomedium"
         android:layout_marginTop="380dp"
         android:layout_marginStart="90dp"
-        android:textSize="20dp"/>
+        android:textSize="20sp"
+        android:fontFamily="@font/opensanssemibold"
+        android:textColor="@color/black"
+        />
     <TextView
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/pointfive"
-        android:textColor="@color/black"
-        android:fontFamily="@font/robotomedium"
         android:layout_marginTop="440dp"
         android:layout_marginStart="90dp"
-        android:textSize="20dp"/>
+        android:textSize="20sp"
+        android:fontFamily="@font/opensanssemibold"
+        android:textColor="@color/black"
+        />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_join"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="500dp"
-        android:background="@drawable/round_button"
+        android:background="@drawable/btn_login3"
         android:text="Join Mos3if"
+        android:textSize="20sp"
         android:textColor="@color/white"
-        android:textSize="20dp"
-        android:fontFamily="@font/robotomedium"
-        android:backgroundTint="@color/primary_color"
-        android:layout_centerHorizontal="true"/>
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="570dp"
-        android:background="@drawable/btn_login"
-        android:text="Login to Mos3if"
-        android:textSize="20dp"
-        android:fontFamily="@font/robotomedium"
-
         android:textAllCaps="false"
+        android:fontFamily="@font/opensansbold"
+        android:layout_centerHorizontal="true"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="570dp"
+        android:background="@drawable/btn_createaccount"
+        android:text="Login to Mos3if"
+        android:textSize="20sp"
+        android:textColor="@color/primary_color"
+        android:textAllCaps="false"
+        android:fontFamily="@font/opensansbold"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

@@ -2,13 +2,13 @@
     <string name="app_name">Mos3if</string>
     //Heading
     <string name="heading_one">Save Lives</string>
-    <string name="heading_two">Get First Aid Kits And Tips</string>
-    <string name="heading_three">Doctor Easily At Your Reach</string>
+    <string name="heading_two">Get First Aid Tips</string>
+    <string name="heading_three">Doctors Easily At Your Reach</string>
 
     //Description
 
     <string name="desc_one">With Mos3if you are in the position to save lives during emergency situations</string>
-    <string name="desc_two">Get access to first aid kits and tips currated by specialists just for you</string>
+    <string name="desc_two">Get access to first aid tips curated by specialists just for you</string>
     <string name="desc_three">Speak to doctors about medical issues you are facing without stress</string>
 
     //startpage

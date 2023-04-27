@@ -21,13 +21,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
 
-        android:fontFamily="@font/robotomedium"
+        android:fontFamily="@font/opensansbold"
         android:text="@string/heading_one"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/white"
         android:textSize="30dp"
-        android:textStyle="bold" />
+         />
 
     <TextView
         android:id="@+id/textdescription"
@@ -35,12 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
-
-
         android:text="@string/desc_one"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:fontFamily="@font/opensanssemibold"/>
 
 
 </LinearLayout>
