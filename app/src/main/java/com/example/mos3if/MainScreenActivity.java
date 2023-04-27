@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +39,15 @@ public class MainScreenActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success
                                     Log.d("Tag", "signInAnonymously:success");
-                                    startActivity(new Intent(getApplicationContext(),TestActivity.class));
+
+                                    //saving login info
+                                    SharedPreferences sharedPreferences = getSharedPreferences(LoginActivity.PREFS_NAME,0);
+                                    SharedPreferences.Editor editor =sharedPreferences.edit();
+                                    editor.putBoolean("hasLoggedIn",true);
+                                    editor.commit();
+
+                                    //taking the user to main activity
+                                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.

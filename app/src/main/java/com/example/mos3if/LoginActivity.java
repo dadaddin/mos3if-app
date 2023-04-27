@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.commit();
 
                             //redirect to main activity
-                            Intent intent = new Intent(LoginActivity.this,TestActivity.class);
+                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(intent);
                             finish();
                         }else{
