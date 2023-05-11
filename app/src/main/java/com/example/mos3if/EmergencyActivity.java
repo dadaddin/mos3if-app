@@ -91,22 +91,26 @@ public class EmergencyActivity extends AppCompatActivity implements AiderAdapter
                        @Override
                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                            for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                               String userId = userSnapshot.getKey();
-                               Double latitude = userSnapshot.child("location").child("latitude").getValue(Double.class);
-                               Double longitude = userSnapshot.child("location").child("longitude").getValue(Double.class);
+                               if (userSnapshot.child("firstName").getValue() != null) {
 
-                               if (latitude != null && longitude != null) {
-                                   Location nearbyUserLocation = new Location("");
-                                   nearbyUserLocation.setLatitude(latitude);
-                                   nearbyUserLocation.setLongitude(longitude);
-                                   float distance = location.distanceTo(nearbyUserLocation);
+                                   Double latitude = userSnapshot.child("location").child("latitude").getValue(Double.class);
+                                   Double longitude = userSnapshot.child("location").child("longitude").getValue(Double.class);
 
+                                   if (latitude != null && longitude != null) {
+                                       Location nearbyUserLocation = new Location("");
+                                       nearbyUserLocation.setLatitude(latitude);
+                                       nearbyUserLocation.setLongitude(longitude);
+                                       float distance = location.distanceTo(nearbyUserLocation);
 
-                                   if (distance <= maxDistanceInMeters) {
-                                       // Add user to the list
-                                       Contact aider = new Contact(userSnapshot.child("firstName").getValue().toString(),userSnapshot.child("phone").getValue().toString());
-                                       aiders.add(aider);
-                                       aiderAdapter.notifyDataSetChanged();
+                                       if (distance <= maxDistanceInMeters) {
+                                           //check if user is available
+                                          if (userSnapshot.child("status").getValue().toString().equals(User.Status.AVAILABLE.toString()) ){
+                                           // Add user to the list
+                                           Contact aider = new Contact(userSnapshot.child("firstName").getValue().toString(),userSnapshot.child("phone").getValue().toString());
+                                           aiders.add(aider);
+                                           aiderAdapter.notifyDataSetChanged();
+                                       }
+                                       }
                                    }
                                }
                            }
@@ -124,65 +128,4 @@ public class EmergencyActivity extends AppCompatActivity implements AiderAdapter
         });
 
     }
-   /* private void getNearbyUsers(double maxDistanceInMeters) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference usersRef = database.getReference("Users");
-
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-
-        }
-        Location currentUserLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-        if (currentUserLocation != null) {
-
-            double currentUserLatitude = currentUserLocation.getLatitude();
-            double currentUserLongitude = currentUserLocation.getLongitude();
-
-            Query query = usersRef.orderByChild("location/latitude")
-                    .startAt(currentUserLatitude - maxDistanceInMeters / 111320)
-                    .endAt(currentUserLatitude + maxDistanceInMeters / 111320);
-
-            query.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        String userId = userSnapshot.getKey();
-                        Double latitude = userSnapshot.child("location").child("latitude").getValue(Double.class);
-                        Double longitude = userSnapshot.child("location").child("longitude").getValue(Double.class);
-
-                        if (latitude != null && longitude != null) {
-                            Location nearbyUserLocation = new Location("");
-                            nearbyUserLocation.setLatitude(latitude);
-                            nearbyUserLocation.setLongitude(longitude);
-                            float distance = currentUserLocation.distanceTo(nearbyUserLocation);
-
-
-                            if (distance <= maxDistanceInMeters) {
-                                // Add user to the list
-                                Contact aider = new Contact(userSnapshot.child("firstName").getValue().toString(),userSnapshot.child("lastName").getValue().toString());
-                                aiders.add(aider);
-                                aiderAdapter.notifyDataSetChanged();
-                            }
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Log.e(TAG, "Database error: " + databaseError.getMessage());
-                }
-            });
-        } else {
-            Log.e(TAG, "Failed to get current location");
-        }
-    }*/
 }

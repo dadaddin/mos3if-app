@@ -149,7 +149,8 @@
         android:fontFamily="@font/opensansbold"
         android:text="Sign up"
         android:textColor="@color/primary_color"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:clickable="true"/>
 
   </LinearLayout>
     <ProgressBar

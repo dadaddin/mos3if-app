@@ -36,8 +36,6 @@ public class SettingsFragment extends Fragment {
     private FirebaseUser user;
     private String userID;
     private DatabaseReference reference;
-
-
     private TextView displayName;
     private TextView displayStatus;
     private Button btnSwitch;
