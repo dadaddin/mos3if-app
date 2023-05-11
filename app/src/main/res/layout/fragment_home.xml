@@ -66,7 +66,7 @@
                 android:id="@+id/card_view_first"
                 style="@style/CustomCardViewStyle1"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="130dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layout_weight="1"
@@ -106,7 +106,7 @@
                 android:id="@+id/card_view_second"
                 style="@style/CustomCardViewStyle2"
                 android:layout_width="0dp"
-                android:layout_height="125dp"
+                android:layout_height="130dp"
                 android:layout_marginStart="16dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
@@ -153,6 +153,17 @@
             android:layout_marginTop="20dp"
             app:cardBackgroundColor="@color/primary_color"
             app:cardCornerRadius="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coming soon"
+                android:background="@drawable/text_background"
+                android:fontFamily="@font/opensansbold"
+                android:textColor="@color/primary_color"
+                android:textSize="12sp"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"

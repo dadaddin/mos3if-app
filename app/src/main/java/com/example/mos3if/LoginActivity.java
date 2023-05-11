@@ -125,8 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                             getLocation();
 
                             //redirect to main activity
-                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                            startActivity(intent);
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
                             finish();
                         }else{
                             Toast.makeText(LoginActivity.this,"Failed to login! Please check your information!",Toast.LENGTH_LONG).show();
