@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private EditText email,firstName,lastName, password;
+    private EditText email,firstName,lastName,phone, password;
     private Button btn_signUp;
     private TextView loginTv;
     private ProgressBar progressBar;
@@ -40,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
         btn_signUp = findViewById(R.id.sign_up);
         email = findViewById(R.id.signup_email);
         password = findViewById(R.id.signup_password);
+        phone = findViewById(R.id.signup_phone);
 
         firstName = findViewById(R.id.signup_firstName);
         lastName = findViewById(R.id.signup_lastName);
@@ -51,6 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
         lastName.setHint("Last Name");
         email.setHint("Email Address");
         password.setHint("Password");
+        phone.setHint("Phone Number");
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -68,6 +70,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String firstNameTxt = firstName.getText().toString();
                 String lastNameTxt = lastName.getText().toString();
                 String emailTxt = email.getText().toString();
+                String phoneTxt = phone.getText().toString();
                 String passwordTxt = password.getText().toString();
 
                 if (firstNameTxt.isEmpty()){
@@ -91,13 +94,19 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
+                if (phoneTxt.isEmpty()){
+                    phone.setError("Phone number is required");
+                    phone.requestFocus();
+                    return;
+                }
+
                 if (passwordTxt.isEmpty()){
                     password.setError("Password is required");
                     password.requestFocus();
                     return;
                 }
-                if (passwordTxt.length() < 6){
-                    password.setError("Min password length should be 6 characters ");
+                if (passwordTxt.length() < 8){
+                    password.setError("Min password length should be 8 characters ");
                     password.requestFocus();
                     return;
                 }
@@ -110,7 +119,7 @@ public class SignUpActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
-                                    User user = new User(firstNameTxt,lastNameTxt,emailTxt);
+                                    User user = new User(firstNameTxt,lastNameTxt,emailTxt,phoneTxt,User.Status.AVAILABLE);
                                     FirebaseDatabase.getInstance().getReference("Users")
                                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                             .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -124,10 +133,13 @@ public class SignUpActivity extends AppCompatActivity {
                                                         SharedPreferences sharedPreferences = getSharedPreferences(LoginActivity.PREFS_NAME,0);
                                                         SharedPreferences.Editor editor =sharedPreferences.edit();
                                                         editor.putBoolean("hasLoggedIn",true);
-                                                        editor.commit();
+                                                        editor.apply();
+
+                                                        //Store Device Token in Firebase
+                                                        LoginActivity.storeToken();
 
                                                         //redirect to Main activity
-                                                        Intent intent = new Intent(SignUpActivity.this,TestActivity.class);
+                                                        Intent intent = new Intent(SignUpActivity.this,MainActivity.class);
                                                         startActivity(intent);
                                                         finish();
                                                     }else{

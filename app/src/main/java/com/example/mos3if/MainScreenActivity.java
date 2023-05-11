@@ -44,7 +44,8 @@ public class MainScreenActivity extends AppCompatActivity {
                                     SharedPreferences sharedPreferences = getSharedPreferences(LoginActivity.PREFS_NAME,0);
                                     SharedPreferences.Editor editor =sharedPreferences.edit();
                                     editor.putBoolean("hasLoggedIn",true);
-                                    editor.commit();
+                                    editor.putBoolean("anonymousUser",true);
+                                    editor.apply();
 
                                     //taking the user to main activity
                                     startActivity(new Intent(getApplicationContext(),MainActivity.class));

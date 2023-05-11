@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     static BottomNavigationView bottomNavigationView;
     static HomeFragment homeFragment = new HomeFragment();
     static FirstAidFragment firstAidFragment = new FirstAidFragment();
-    ProfileFragment profileFragment = new ProfileFragment();
+    SettingsFragment settingsFragment = new SettingsFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().remove(homeFragment).commit();
         getSupportFragmentManager().beginTransaction().remove(firstAidFragment).commit();
-        getSupportFragmentManager().beginTransaction().remove(profileFragment).commit();
+        getSupportFragmentManager().beginTransaction().remove(settingsFragment).commit();
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container , homeFragment)
                 .add(R.id.fragment_container , firstAidFragment)
-                .add(R.id.fragment_container , profileFragment)
+                .add(R.id.fragment_container , settingsFragment)
                 .commit();
 
         setTabStateFragment(TabState.HOME).commit();
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_firstaid:
                         setTabStateFragment(TabState.FIRSTAID).commit();
                         return true;
-                    case R.id.item_profile:
-                        setTabStateFragment(TabState.PROFILE).commit();
+                    case R.id.item_settings:
+                        setTabStateFragment(TabState.SETTINGS).commit();
                         return true;
                 }
                 return false;
@@ -78,15 +78,15 @@ public class MainActivity extends AppCompatActivity {
             case HOME:
                 transaction.show(homeFragment);
                 transaction.hide(firstAidFragment);
-                transaction.hide(profileFragment);
+                transaction.hide(settingsFragment);
                 break;
             case FIRSTAID:
                 transaction.show(firstAidFragment);
                 transaction.hide(homeFragment);
-                transaction.hide(profileFragment);
+                transaction.hide(settingsFragment);
                 break;
-            case PROFILE:
-                transaction.show(profileFragment);
+            case SETTINGS:
+                transaction.show(settingsFragment);
                 transaction.hide(firstAidFragment);
                 transaction.hide(homeFragment);
                 break;
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     enum  TabState {
         HOME,
         FIRSTAID,
-        PROFILE,
+        SETTINGS,
     }
 
 }

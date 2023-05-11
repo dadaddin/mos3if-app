@@ -6,10 +6,13 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -121,6 +124,18 @@ public class ContactsActivity extends AppCompatActivity implements ContactsAdapt
                 });
         builder.create().show();
     }
+  /* @Override
+   public void onDeleteClick(Contact contact) {
+
+       Dialog dialog;
+       dialog = new Dialog(getApplicationContext(), R.style.DialogTheme);
+
+       dialog.setContentView(R.layout.dialog_layout);
+       dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+       dialog.setCancelable(false);
+       dialog.show();
+
+   }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

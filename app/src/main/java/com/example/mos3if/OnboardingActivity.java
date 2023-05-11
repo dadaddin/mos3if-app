@@ -109,6 +109,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
             if (position == 2){
                 nextbtn.setText("Finish");
+
             } else {
                 nextbtn.setText("Next");
             }
