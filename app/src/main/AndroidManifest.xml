@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Mos3if"
         tools:targetApi="31">
         <activity
+            android:name=".StepsActivity"
+            android:exported="false" />
+        <activity
             android:name=".EmergencyActivity"
             android:exported="false" />
         <activity

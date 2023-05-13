@@ -5,13 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".FirstAidFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="vertical"
         android:layout_height="match_parent"
-        android:text="First Aid Fragment"
-        android:textColor="@color/txt_color"
-        android:textSize="30sp"
-        android:fontFamily="@font/opensansbold"/>
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" />
+
+
+    </LinearLayout>
 
 </FrameLayout>
